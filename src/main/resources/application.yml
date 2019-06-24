@@ -1,0 +1,29 @@
+server:
+  port: 8082
+  servlet:
+    contextPath: /document-service
+
+#Database stuff
+spring:
+  datasources:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:;DB_CLOSE_DELAY=-1
+    username: 12345
+    password: 12345
+    tomcat:
+      connectionTestQuery: select 1
+      connectionTimeout: 15000
+      maxLifetime: 900000
+      leakDetectionThreshold: 60000
+      maximumPoolSize: 5
+      poolName: Hikari-as400
+      minimumIdle: 0
+      type: com.zaxxer.hikari.HikariDataSource
+
+  liquibase:
+    change-log: classpath:liquibase/db.changelog-master.yaml
+
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1

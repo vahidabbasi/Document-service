@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Vahid Abbasi
+      changes:
+        - createSequence:
+            cycle: true
+            incrementBy: 1
+            ordered: true
+            schemaName: public
+            sequenceName: seq_id
+            startValue: 1
+        - createTable:
+            tableName: document_info
+            remarks: Table specifying documents
+            columns:
+              - column:
+                  name: document_id
+                  type: varchar(20)
+                  remarks: The document ID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: document_name
+                  type: varchar(100)
+                  remarks: The document name
+                  constraints:
+                    nullable: false
+              - column:
+                  name: document_content
+                  type: blob
+                  remarks: The binary of data
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  remarks: The date/time for when the document was created.
+                  defaultValue: SYSDATE
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  remarks: The date/time for when the most recent change of the document occurred.
+              - column:
+                  name: deleted_at
+                  type: timestamp
+                  remarks: The date/time for when the document deleted.
+        - addPrimaryKey:
+            columnNames: document_id
+            constraintName: pk_document
+            tableName: document_info
