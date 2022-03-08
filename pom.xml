@@ -21,7 +21,7 @@
 		<spring-healthcheck.version>1.0.5</spring-healthcheck.version>
 		<jackson.databind.version>2.9.9</jackson.databind.version>
 		<swagger.version>2.9.2</swagger.version>
-		<liquibase.version>3.6.3</liquibase.version>
+		<liquibase.version>4.8.0</liquibase.version>
 		<jdbi.version>3.8.2</jdbi.version>
 	</properties>
 
